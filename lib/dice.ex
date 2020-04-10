@@ -5,19 +5,19 @@ defmodule Discordsworn.Dice do
   def ironsworn_action(args, msg, _state) do
     desc = Enum.join(args, " ")
 
-    {mods_total, mods} = ironsworn_modifiers(desc)
+    {adds_total, adds} = ironsworn_adds(desc)
 
     content = ~s"""
     #{Nostrum.Struct.User.mention(msg.author)}
     """
 
-    embed = embed_ironsworn(desc, mods_total, mods)
+    embed = embed_ironsworn(desc, adds_total, adds)
 
     Nostrum.Api.create_message(msg.channel_id, content: content, embed: embed)
   end
 
-  defp ironsworn_modifiers(description) do
-    mods =
+  defp ironsworn_adds(description) do
+    adds =
       case Regex.scan(~r/[+\-]?\d+/, description) do
         captures ->
           captures
@@ -26,21 +26,23 @@ defmodule Discordsworn.Dice do
           |> Enum.map(&validate_integer/1)
       end
 
-    {Enum.sum(mods), mods}
+    {Enum.sum(adds), adds}
   end
 
-  defp embed_ironsworn(description, modifiers_total, modifiers) do
+  defp embed_ironsworn(description, adds_total, adds) do
     {act, challenge1, challenge2} = {roll(6), roll(10), roll(10)}
 
-    total = act + modifiers_total
+    score =
+      (act + adds_total)
+      |> min(10)
 
     challenge_dice =
       [challenge1, challenge2]
-      |> Enum.map(&if total > &1, do: "__**#{&1}**__", else: "**#{&1}**")
+      |> Enum.map(&if score > &1, do: "__**#{&1}**__", else: "**#{&1}**")
       |> Enum.join(" & ")
 
-    modifiers_field =
-      modifiers
+    adds_field =
+      adds
       |> Enum.reduce(
         "",
         &"#{&2}#{unless(&2 === "" || &1 < 0, do: "+", else: "")}#{&1}"
@@ -52,24 +54,24 @@ defmodule Discordsworn.Dice do
 
     {success_field, color} =
       cond do
-        total > challenge1 && total > challenge2 ->
+        score > challenge1 && score > challenge2 ->
           {unless(match, do: "**Strong hit!**", else: "**Strong __match__!**"), 0x00_7F_00}
 
-        total > challenge1 || total > challenge2 ->
+        score > challenge1 || score > challenge2 ->
           {unless(match, do: "Weak hit.", else: "Weak __match__."), 0x7F_7F_00}
 
         true ->
           {unless(match, do: "_Miss..._", else: "_Miss and __match__..._"), 0x7F_00_00}
       end
 
-    total_field = "**#{total}**"
+    score_field = "**#{score}**"
 
     %Nostrum.Struct.Embed{}
     |> Commands.put_provider()
     |> put_description(description)
-    |> put_field("Action", act_field, true)
-    |> put_field("Modifiers", modifiers_field, true)
-    |> put_field("Total", total_field, true)
+    |> put_field("Roll", act_field, true)
+    |> put_field("Adds", adds_field, true)
+    |> put_field("Score", score_field, true)
     |> put_field("Challenge", challenge_dice, true)
     |> put_field("Result", success_field, false)
     |> put_color(color)
