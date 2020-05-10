@@ -11,3 +11,13 @@ config :nostrum,
 
 config :logger,
   level: :debug
+
+config :discordsworn, Discordsworn.Repo,
+  database: "discordsworn",
+  username: System.get_env("DISCORDSWORN_DB_USERNAME"),
+  password: System.get_env("DISCORDSWORN_DB_PASSWORD"),
+  hostname: "localhost"
+
+config :discordsworn,
+  ecto_repos: [Discordsworn.Repo],
+  owner_discord_id: System.get_env("DISCORDSWORN_OWNER")

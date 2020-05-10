@@ -1,0 +1,106 @@
+[
+  {
+    "type": "game",
+    "key": "ironsworn",
+    "name": "Ironsworn",
+    "url": "https://www.ironswornrpg.com/"
+  },
+  {
+    "type": "author",
+    "key": "shawn-tomkin",
+    "name": "Shawn Tomkin",
+    "url": "https://twitter.com/ShawnTomkin"
+  },
+  {
+    "type": "license",
+    "key": "cc-by-nc-sa-40",
+    "name": "CC BY-NC-SA 4.0",
+    "description": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International",
+    "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  },
+  {
+    "type": "source",
+    "key": "ironsworn.core",
+    "name": "Ironsworn Core Rulebook",
+    "games": [
+      "ironsworn"
+    ],
+    "authors": [
+      "shawn-tomkin"
+    ],
+    "copyright": "©2018 Shawn Tomkin",
+    "version": "1.0",
+    "licenses": [
+      "cc-by-nc-sa-40"
+    ],
+    "url": "http://bit.ly/ironsworn-rulebook"
+  },
+  {
+    "type": "oracle",
+    "key": "ironsworn.core.oracles.settlement-trouble",
+    "source": "ironsworn.core",
+    "name": "Settlement Trouble",
+    "description": "Use this table to generate a narrative hook for a problem faced by a community. This oracle can help inspire a vow for your character or serve as a prompt for a trouble you encounter when you interact with a settlement. Use other oracles, as appropriate, to help flesh out the answer.\n\n> You were attacked by raiders while portaging the boat around some shallows, and barely managed to fend off the attack. Now, you seek out healing, rest, and supplies at a nearby village.\n> \n> First, you generate a name for the settlement. You use the Ironlander Settlement Name oracle and roll “A historical event” as the category, and “Firstmeet” from the examples. You decide this village sits on the site of the first encounter between elves and humans.\n> \n> You roll a match on your _Sojourn_ move, and opt to trigger a new narrative hook. You ask, “What’s the problem here?” and roll on the Settlement Trouble table.\n> \n> The oracle answers, “Debt comes due.”\n> \n> Perhaps the band of raiders you encountered along the river have also been making demands of Firstmeet to supply them with food. The raiders are due to return soon, but the villagers won’t survive the winter without the meager provisions they have left. You _Swear an Iron Vow_ to help them.",
+    "ordinal": 9,
+    "pages": [
+      181
+    ],
+    "aliases": [
+      "st",
+      "settlement-trouble",
+      "isc9"
+    ],
+    "results": {
+      "2": "Outsiders rejected",
+      "4": "Dangerous discovery",
+      "6": "Dreadful omens",
+      "8": "Natural disaster",
+      "10": "Old wounds reopened",
+      "12": "Important object is lost",
+      "14": "Someone is captured",
+      "16": "Mysterious phenomenon",
+      "18": "Revolt against a leader",
+      "20": "Vengeful outcast",
+      "22": "Rival settlement",
+      "24": "Nature strikes back",
+      "26": "Someone is missing",
+      "28": "Production halts",
+      "30": "Mysterious murders",
+      "32": "Debt comes due",
+      "34": "Unjust leadership",
+      "36": "Disastrous accident",
+      "38": "In league with the enemy",
+      "40": "Raiders prey on the weak",
+      "42": "Cursed past",
+      "44": "An innocent is accused",
+      "46": "Corrupted by dark magic",
+      "48": "Isolated by brutal weather",
+      "50": "Provisions are scarce",
+      "52": "Sickness run amok",
+      "54": "Allies become enemies",
+      "56": "Attack is imminent",
+      "58": "Lost caravan",
+      "60": "Dark secret revealed",
+      "62": "Urgent expedition",
+      "64": "A leader falls",
+      "66": "Families in conflict",
+      "68": "Incompetent leadership",
+      "70": "Reckless warmongering",
+      "72": "Beast on the hunt",
+      "74": "Betrayed from within",
+      "76": "Broken truce",
+      "78": "Wrathful haunt",
+      "80": "Conflict with firstborn",
+      "82": "Trade route blocked",
+      "84": "In the crossfire",
+      "86": "Stranger causes discord",
+      "88": "Important event threatened",
+      "90": "Dangerous tradition",
+      "100": {
+        "name": "Roll twice",
+        "reference": null,
+        "iterations": 2
+      }
+    }
+  }
+]

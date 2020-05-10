@@ -14,7 +14,8 @@ defmodule Discordsworn.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger, :ex_dice_roller]
+      mod: {Discordsworn.Application, []},
+      extra_applications: [:logger, :ex_dice_roller, :inets, :ssl]
     ]
   end
 
@@ -26,8 +27,13 @@ defmodule Discordsworn.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:nosedrum, "~> 0.2"},
       {:nostrum, "~> 0.4"},
-      {:ex_dice_roller, "~> 1.0.0-rc.2"}
+      {:ex_dice_roller, "~> 1.0.0-rc.2"},
+      {:ecto_sql, "~> 3.0"},
+      {:postgrex, ">= 0.0.0"},
+      {:jason, "~> 1.2"},
+      {:ecto_enum, "~> 1.4"}
     ]
   end
 end

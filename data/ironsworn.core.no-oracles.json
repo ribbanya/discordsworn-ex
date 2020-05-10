@@ -1,0 +1,38 @@
+[
+  {
+    "type": "game",
+    "key": "ironsworn",
+    "name": "Ironsworn",
+    "url": "https://www.ironswornrpg.com/"
+  },
+  {
+    "type": "author",
+    "key": "shawn-tomkin",
+    "name": "Shawn Tomkin",
+    "url": "https://twitter.com/ShawnTomkin"
+  },
+  {
+    "type": "license",
+    "key": "cc-by-nc-sa-40",
+    "name": "CC BY-NC-SA 4.0",
+    "description": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International",
+    "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  },
+  {
+    "type": "source",
+    "key": "ironsworn.core",
+    "name": "Ironsworn Core Rulebook",
+    "games": [
+      "ironsworn"
+    ],
+    "authors": [
+      "shawn-tomkin"
+    ],
+    "copyright": "©2018 Shawn Tomkin",
+    "version": "1.0",
+    "licenses": [
+      "cc-by-nc-sa-40"
+    ],
+    "url": "http://bit.ly/ironsworn-rulebook"
+  }
+]
